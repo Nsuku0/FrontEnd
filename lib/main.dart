@@ -1,6 +1,5 @@
 //import 'package:bridgeup/piechart.dart';
 import 'package:flutter/material.dart';
-import 'package:pie_chart/pie_chart.dart';
 
 void main() => runApp(const MaterialApp(
       home: Home(),

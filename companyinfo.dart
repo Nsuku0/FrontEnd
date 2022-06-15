@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:FrontEnd/constants.dart';
+import 'constants/constants.dart';
 
 class CompanyInfo extends StatelessWidget {
   const CompanyInfo ({Key? key}): super(key:key);
@@ -27,6 +27,6 @@ class CompanyInfo extends StatelessWidget {
 
         ]
       )
-    )
+    ),
   }
 }

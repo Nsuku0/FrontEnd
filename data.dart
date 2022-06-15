@@ -1,21 +1,19 @@
-import 'package:FrontEnd/constants.dart';
-import 'package:FrontEnd/models/company_info_model.dart';
-import 'package:excel/excel.dart';
+import 'constants/constants.dart';
+import 'models/company_info_model.dart';
 import 'package:flutter/services.dart' show ByteData, rootBundle;
+import 'dart:io';
+import 'package:path/path.dart' as p;
+List<String> data = [];
 
-void readExcelFile() {
-  ByteData data = await rootBundle.load("assets/companyData.xlsx");
-  var bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
-  var excel = Excel.decodeBytes(bytes);
-  int j =0;
-  int row = 18;
-  int col = 2;
-  var listVar = List.generate(row, (i) => List(col), growable:false);
-  for (var table in excel.tables.keys) {
-    //TODO: add excel code
-  }
+void readFileByLines(){
+  File file = new File('./assets/CompData.xlsx');
+  List<String> lines = file.readAsLinesSync();
+  data = lines.sublist(1,lines.length);
 }
 
+String getCompanyName(int idx) {
+  return data[0;, idx];
+}
 
 List companyData = [
   CompInfo (
