@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:data/data.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -9,7 +10,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar (
+      appBar: AppBar(
         title: Text("Dashboard"),
       ),
     );

@@ -56,14 +56,38 @@
       "languageVersion": "2.7"
     },
     {
+      "name": "file_picker",
+      "rootUri": "file:///C:/Users/rinya/lang/flutter/.pub-cache/hosted/pub.dartlang.org/file_picker-2.1.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///C:/Users/rinya/lang/flutter/packages/flutter",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_plugin_android_lifecycle",
+      "rootUri": "file:///C:/Users/rinya/lang/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-1.0.11",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "flutter_web_plugins",
+      "rootUri": "file:///C:/Users/rinya/lang/flutter/packages/flutter_web_plugins",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "intl",
       "rootUri": "file:///C:/Users/rinya/lang/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "js",
+      "rootUri": "file:///C:/Users/rinya/lang/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -90,6 +114,12 @@
       "rootUri": "file:///C:/Users/rinya/lang/flutter/.pub-cache/hosted/pub.dartlang.org/pie_chart-5.3.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "plugin_platform_interface",
+      "rootUri": "file:///C:/Users/rinya/lang/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-1.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
     },
     {
       "name": "sky_engine",
@@ -134,7 +164,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-06-20T17:04:50.704759Z",
+  "generated": "2022-06-20T20:14:30.271108Z",
   "generator": "pub",
   "generatorVersion": "2.15.1"
 }
