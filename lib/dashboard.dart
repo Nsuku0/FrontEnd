@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:data/data.dart';
+import 'package:assets/data/data.dart';
 
 class Dashboard extends StatefulWidget {
   @override

@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
   gotoSecondActivity(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => MyApp()),
+      MaterialPageRoute(builder: (context) => MaterialApp()),
     );
   }
 
@@ -22,7 +22,7 @@ class Home extends StatelessWidget {
       Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("absa.png"), // <-- BACKGROUND IMAGE
+            image: AssetImage("icons/absa.png"), // <-- BACKGROUND IMAGE
             fit: BoxFit.cover,
           ),
         ),
