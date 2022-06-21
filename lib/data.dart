@@ -1,4 +1,4 @@
-import '../../models/company_info_model.dart';
+import '/models/company_info_model.dart';
 import 'package:flutter/services.dart' show ByteData, rootBundle;
 import 'dart:core';
 import 'package:path/path.dart' as p;

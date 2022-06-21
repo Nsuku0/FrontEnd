@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
   gotoSecondActivity(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => MaterialApp()),
+      MaterialPageRoute(builder: (context) => Dashboard()),
     );
   }
 
@@ -75,5 +75,21 @@ class Home extends StatelessWidget {
             ),
           )),
     ]);
+  }
+}
+
+class Dashboard extends StatefulWidget {
+  @override
+  _DashboardState createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Dashboard"),
+      ),
+    );
   }
 }
