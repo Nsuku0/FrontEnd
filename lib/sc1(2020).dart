@@ -5,11 +5,11 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 class MyApp extends StatelessWidget{
   MyApp({Key? key}) : super(key: key);
 
-    late List<RevDat> chartData;  // initializes chart data field
+    late List<RevDat> _chartData;  // initializes chart data field
     
     @override
-    void initState(){
-      chartData = getSectorInfo();
+    void initState() {
+      _chartData = getSectorInfo(); // returns scope emmisions data collection
       super.initState();
     }
 
@@ -19,12 +19,13 @@ class MyApp extends StatelessWidget{
         child: Scaffold(
           body: SfCircularChart(
        title: 
-              ChartTitle(text:"2020 Scope 1 - Average Emissions Per Sector"),
+              ChartTitle(text:"2020 Scope 1 - Average Emissions Per Sector"),  //returns titlte on piechart
        legend: 
-              Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap),
+              Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart
+      
        series: <CircularSeries>[
             PieSeries<RevDat, String>(
-              dataSource: chartData,
+              dataSource: _chartData,
               xValueMapper: (RevDat data,_) => data.sector,
               yValueMapper: (RevDat data,_) => data.emission,
               dataLabelSettings: DataLabelSettings(isVisible: true,))

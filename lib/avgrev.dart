@@ -5,11 +5,11 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 class MyApp extends StatelessWidget{
 
   
-    late List<RevDat> chartData;  // initializes chart data field
+    late List<RevDat> _chartData;  // initializes chart data field
     
     @override
     void iniState(){
-      chartData = getSectorInfo();
+      _chartData = getSectorInfo();
       super.iniState();
     }
 
@@ -19,15 +19,15 @@ class MyApp extends StatelessWidget{
         child: Scaffold(
           body: SfCircularChart(
       title: 
-              ChartTitle(text:"2020 Scope 1 - Average Emissions Per Sector"),  //returns titlte on piechart
+              ChartTitle(text:"Average Revenue Per Sector"),  //returns titlte on piechart
       legend: 
               Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart  
             series: <CircularSeries>[ 
               PieSeries<RevDat, String>(
-              dataSource: chartData,
+              dataSource: _chartData,
               xValueMapper: (RevDat data,_) => data.sector,
               yValueMapper: (RevDat data,_) => data.revenue,)
-      ])))         // returns chart in usable area
+      ])));        // returns chart in usable area
     }
     
   
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget{
       RevDat("Manu",81221.76),
       RevDat("Agri", 72134.04),
       RevDat("TMT",45733.32),
-    ]
+    ];
     return chartData;
   }
 }
