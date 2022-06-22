@@ -19,10 +19,11 @@ class _DashboardState extends State<Dashboard> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                flex: 5,
-                child: DashboardContent(),
-              )
+              Expanded(child: DrawerMenu(),),
+            Expanded(
+              flex: 5,
+              child: DashboardContent(),
+            )
             ],
           ),
         ));

@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 
 class RevenueInfo {
-  final String? iconSrc, name;
+  final String? name;
   final double? rev2021, rev2020;
 
   RevenueInfo({
-    this.iconSrc,
     this.name,
     this.rev2020,
     this.rev2021,
   });
-  double? get2020() {
-    return this.rev2020;
+  String? getName() {
+    return this.name;
   }
 
   double? get2021() {
     return this.rev2021;
   }
 
-  String? getIcon() {
-    return this.iconSrc;
+  double? get2020() {
+    return this.rev2020;
   }
 }
