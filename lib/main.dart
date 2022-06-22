@@ -1,5 +1,6 @@
 //import 'package:bridgeup/piechart.dart';
 import 'package:flutter/material.dart';
+import 'dashboard.dart';
 
 void main() => runApp(const MaterialApp(
       home: Home(),
@@ -75,21 +76,5 @@ class Home extends StatelessWidget {
             ),
           )),
     ]);
-  }
-}
-
-class Dashboard extends StatefulWidget {
-  @override
-  _DashboardState createState() => _DashboardState();
-}
-
-class _DashboardState extends State<Dashboard> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Dashboard"),
-      ),
-    );
   }
 }

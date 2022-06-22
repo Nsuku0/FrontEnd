@@ -26,6 +26,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "charts_common",
+      "rootUri": "file:///C:/Users/rinya/lang/flutter/.pub-cache/hosted/pub.dartlang.org/charts_common-0.12.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "charts_flutter",
+      "rootUri": "file:///C:/Users/rinya/lang/flutter/.pub-cache/hosted/pub.dartlang.org/charts_flutter-0.12.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "clock",
       "rootUri": "file:///C:/Users/rinya/lang/flutter/.pub-cache/hosted/pub.dartlang.org/clock-1.1.1",
       "packageUri": "lib/",
@@ -88,6 +100,12 @@
     {
       "name": "js",
       "rootUri": "file:///C:/Users/rinya/lang/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "logging",
+      "rootUri": "file:///C:/Users/rinya/lang/flutter/.pub-cache/hosted/pub.dartlang.org/logging-1.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -164,7 +182,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-06-21T14:14:03.775319Z",
+  "generated": "2022-06-22T10:01:56.070627Z",
   "generator": "pub",
   "generatorVersion": "2.15.1"
 }
