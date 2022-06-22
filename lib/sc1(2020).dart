@@ -1,3 +1,4 @@
+import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -37,19 +38,20 @@ class MyApp extends StatelessWidget{
 
   List<RevDat> getSectorInfo(){
     final List<RevDat> chartData = [
-      RevDat("Retail", 555300),
-      RevDat("Mining", 31630.54904),
-      RevDat("Prof", 27277.33137),
-      RevDat("Manu", 18244.88057),
-      RevDat("Agri", 13238.0099 ),
-      RevDat("TMT",18427.67367),
+      RevDat("Retail", 555300, ColorUtil.fromDartColor(Color(0xFFf1f1f1))),
+      RevDat("Mining", 31630.54904, ColorUtil.fromDartColor(Color(0xFFf1f1f1))),
+      RevDat("Prof", 27277.33137, ColorUtil.fromDartColor(Color(0xFFf1f1f1))),
+      RevDat("Manu", 18244.88057, ColorUtil.fromDartColor(Color(0xFFf1f1f1))),
+      RevDat("Agri", 13238.0099, ColorUtil.fromDartColor(Color(0xFFf1f1f1))),
+      RevDat("TMT",18427.67367, ColorUtil.fromDartColor(Color(0xFFf1f1f1))),
     ];
     return chartData;
   }
 }
 
 class RevDat{
-  RevDat(this.sector, this.emission);
+  RevDat(this.sector, this.emission, this.color);
   final String sector;
   final double emission;
+  final Color color; //variable to allow specifiation of colour
 }
