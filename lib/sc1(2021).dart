@@ -4,22 +4,26 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 
 class MyApp extends StatelessWidget{
 
-  class MyPage extends StatefulWidget{
+  
     late List<RevDat> chartData;  // initializes chart data field
     
     @override
-    void iniState(){
+    void initState(){
       chartData = getSectorInfo();
-      super.iniState();
+      super.initState();
     }
 
     @override
     Widget build(BuildContext context){
-      return SafeArea(child: Scaffold(body: SfCircularChart(series: <CircularSeries>{PieSeries<RevDat, String>(
-        dataSource: chartData,
-        xValueMapper: (RevData data,_) => data.sector,
-        yValueMapper: (RevDta data,_) => data.emission,
-      )})))         // returns chart in usable area
+      return SafeArea(
+          child: Scaffold(
+              body: SfCircularChart(
+                series: <CircularSeries>[
+                  PieSeries<RevDat, String>(
+                  dataSource: chartData,
+                  xValueMapper: (RevDat data,_) => data.sector,
+                  yValueMapper: (RevDat data,_) => data.emission,
+      )])))         // returns chart in usable area
     }
     
   }
@@ -32,13 +36,13 @@ class MyApp extends StatelessWidget{
       RevDat("Manu", 20045.38777),
       RevDat("Agri", 10894.16791),
       RevDat("TMT", 23530.21333),
-    ]
-    return chartData
-  }
+    ];
+    return chartData;
+  
 }
 
 class RevDat{
   RevDat(this.sector, this.emission);
   final String sector;
-  final int emission;
+  final double emission;
 }

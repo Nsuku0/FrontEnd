@@ -4,7 +4,7 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 
 class MyApp extends StatelessWidget{
 
-  class MyPage extends StatefulWidget{
+  
     late List<RevDat> chartData;  // initializes chart data field
     
     @override
@@ -15,14 +15,22 @@ class MyApp extends StatelessWidget{
 
     @override
     Widget build(BuildContext context){
-      return SafeArea(child: Scaffold(body: SfCircularChart(series: <CircularSeries>{PieSeries<RevDat, String>(
-        dataSource: chartData,
-        xValueMapper: (RevData data,_) => data.sector,
-        yValueMapper: (RevDta data,_) => data.revenue,
-      )})))         // returns chart in usable area
+      return SafeArea(
+        child: Scaffold(
+          body: SfCircularChart(
+      title: 
+              ChartTitle(text:"2020 Scope 1 - Average Emissions Per Sector"),  //returns titlte on piechart
+      legend: 
+              Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart  
+            series: <CircularSeries>[ 
+              PieSeries<RevDat, String>(
+              dataSource: chartData,
+              xValueMapper: (RevDat data,_) => data.sector,
+              yValueMapper: (RevDat data,_) => data.revenue,)
+      ])))         // returns chart in usable area
     }
     
-  }
+  
 
   List<RevDat> getSectorInfo(){
     final List<RevDat> chartData = [
@@ -33,12 +41,12 @@ class MyApp extends StatelessWidget{
       RevDat("Agri", 72134.04),
       RevDat("TMT",45733.32),
     ]
-    return chartData
+    return chartData;
   }
 }
 
 class RevDat{
   RevDat(this.sector, this.revenue);
   final String sector;
-  final int revenue;
+  final double revenue;
 }
