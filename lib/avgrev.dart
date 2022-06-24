@@ -1,6 +1,7 @@
 import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'constants/constants.dart';
 
 
 class MyApp extends StatelessWidget{
@@ -40,8 +41,8 @@ class MyApp extends StatelessWidget{
       RevDat("Mining", 262915,ColorUtil.fromDartColor(Color(0xFFf1f1f1);) ),
       RevDat("Prof",95156.5, ColorUtil.fromDartColor(Color(0xFFf1f1f1);) ),
       RevDat("Manu",81221.76,ColorUtil.fromDartColor(Color(0xFFf1f1f1);) ),
-      RevDat("Agri", 72134.04,ColorUtil.fromDartColor(Color(0xFFf1f1f1);) ),
-      RevDat("TMT",45733.32,ColorUtil.fromDartColor(Color (0xFFf1f1f1);) ),
+      RevDat("Agri", 72134.04,ColorUtil.fromDartColor(pinks[1])),
+      RevDat("TMT",45733.32, charts.ColorUtil.fromDartColor(pinks[1]) ),
     ];
     return chartData;
   }
