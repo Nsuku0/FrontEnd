@@ -18,7 +18,7 @@ class MyApp extends StatefulWidget{
       super.initState();
     }
     
-
+    
     
     @override
     Widget build(BuildContext context){
@@ -26,7 +26,17 @@ class MyApp extends StatefulWidget{
           child: Scaffold(
               body: SfCircularChart(
        title: 
-              ChartTitle(Text:"2020 Scope 1 - Average Emissions Per Sector"),  //returns titlte on piechart
+              const Text('2020 Scope 1 - Average Emissions Per Sector'),  //returns titlte on piechart
+              backgroundColor: Colors.white,
+                  borderColor: Colors.white,
+                  borderWidth: 2,
+                  // Aligns the chart title to left
+                  alignment: ChartAlignment.near,
+                  textStyle: TextStyle(
+                    color: oranges[3],
+                    fontFamily: '',
+                    fontStyle: FontStyle.italic,
+                    fontSize: 14,),
        legend: 
               Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart
                 series: <CircularSeries>[
