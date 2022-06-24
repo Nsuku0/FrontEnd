@@ -39,7 +39,11 @@ class MyApp extends StatefulWidget{
                     fontSize: 14,)
               ),
        legend: 
-              Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart
+              Legend(
+                position: LegendPosition.right, // positioning of key
+                isVisible: true, 
+                isResponsive: true,  // makes key interactive
+                overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart
                 series: <CircularSeries>[
                   PieSeries<RevDat, String>(
                   dataSource: _chartData,
