@@ -25,8 +25,8 @@ class MyApp extends StatefulWidget{
       return SafeArea(
           child: Scaffold(
               body: SfCircularChart(
-       title: 
-              const Text('2020 Scope 1 - Average Emissions Per Sector'),  //returns titlte on piechart
+       title: ChartTitle(
+              text: '2020 Scope 1 \- Average Emissions Per Sector',  //returns titlte on piechart
               backgroundColor: Colors.white,
                   borderColor: Colors.white,
                   borderWidth: 2,
@@ -36,7 +36,8 @@ class MyApp extends StatefulWidget{
                     color: oranges[3],
                     fontFamily: '',
                     fontStyle: FontStyle.italic,
-                    fontSize: 14,),
+                    fontSize: 14,)
+              ),
        legend: 
               Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart
                 series: <CircularSeries>[
