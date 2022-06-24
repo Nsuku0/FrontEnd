@@ -4,12 +4,12 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'constants/constants.dart';
 
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatefulWidget{
 
     const MyApp({Key? key}) : super(key: key);
     State createState() => App();
 }
-    class App extends State {
+    class App extends State<MyApp> {
     late List<RevDat> _chartData;  // initializes chart data field
 
     @override
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget{
           child: Scaffold(
               body: SfCircularChart(
        title: 
-              ChartTitle(text:"2020 Scope 1 - Average Emissions Per Sector"),  //returns titlte on piechart
+              ChartTitle(Text:"2020 Scope 1 - Average Emissions Per Sector"),  //returns titlte on piechart
        legend: 
               Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart
                 series: <CircularSeries>[
