@@ -4,15 +4,18 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'constants/constants.dart';
 
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatefulWidget{
 
-  
-    late List<RevDat> _chartData;  // initializes chart data field
+    const MyApp({Key? key}) : super(key: key);
+    State createState() => App();
     
+}
+  class App extends State<MyApp>{
+    late List<RevDat> _chartData;  // initializes chart data field
     @override
-    void iniState(){
+    void initState(){
       _chartData = getSectorInfo();
-      super.iniState();
+      super.initState();
     }
 
     @override
