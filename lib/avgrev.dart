@@ -32,15 +32,17 @@ class MyApp extends StatefulWidget{
                   alignment: ChartAlignment.near,
                   textStyle: TextStyle(
                     color: oranges[3], //colour of title
-                    fontFamily: '',    // Sets title font
-                    fontStyle: FontStyle.italic,
+                    fontFamily: 'Calibri',    // Sets title font
+                    fontStyle: FontStyle.normal,
                     fontweight: FontWeight.bold, //Make Title bold
                     fontSize: 18,), // Size of title
               ),  //returns titlte on piechart
       legend: 
               Legend(
-              position: ,
-              isVisible: true, overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart  
+              position:LegendPosition.right, // positioning of key  
+              isVisible: true, 
+              isResponsive: true, ///makes key interactive
+              overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart  
             series: <CircularSeries>[ 
               PieSeries<RevDat, String>(
               dataSource: _chartData,

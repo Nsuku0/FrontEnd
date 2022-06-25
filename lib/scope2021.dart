@@ -34,8 +34,8 @@ class MyApp extends StatefulWidget{
                   alignment: ChartAlignment.near,
                   textStyle: TextStyle(
                     color: oranges[3], //colour of title
-                    fontFamily: '',    // Sets title font
-                    fontStyle: FontStyle.italic,
+                    fontFamily: 'Calibri',    // Sets title font
+                    fontStyle: FontStyle.normal,
                     fontweight: FontWeight.bold, //Make Title bold
                     fontSize: 18,), // Size of title
               ),
@@ -60,7 +60,7 @@ class MyApp extends StatefulWidget{
     final List<RevDat> chartData = [
       RevDat("Retail",7237062.17, ColorUtil.fromDartColor(pinks[1]) ),
       RevDat("Mining",1175693.667, ColorUtil.fromDartColor(pinks[1])),
-      RevDat("Prof", 28020.30315, ColorUtil.fromDartColor(pinks[1])),
+      //RevDat("Prof", 28020.30315, ColorUtil.fromDartColor(pinks[1])),
       RevDat("Manu",72587.5 , ColorUtil.fromDartColor(pinks[1])),
       RevDat("Agri", 283577.33, ColorUtil.fromDartColor(pinks[1])),
       RevDat("TMT",308638.17, ColorUtil.fromDartColor(pinks[1])),

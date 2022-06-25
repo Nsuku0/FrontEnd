@@ -25,10 +25,26 @@ class MyApp extends StatefulWidget{
         child: Scaffold(
           body: SfCircularChart(
     title: 
-         ChartTitle(text:"Combined Scope 1 and 2 Emissions per Sector 2020"),  //returns titlte on piechart
+         ChartTitle(text:"Combined Scope 1 and 2 Emissions per Sector 2020" //returns titlte on piechart
+              backgroundColor: Colors.white,
+                  borderColor: Colors.white,
+                  borderWidth: 2,
+                  // Aligns the chart title to left
+                  alignment: ChartAlignment.near,
+                  textStyle: TextStyle(
+                    color: oranges[3], //colour of title
+                    fontFamily: 'Calibri',    // Sets title font
+                    fontStyle: FontStyle.normal,
+                    fontweight: FontWeight.bold, //Make Title bold
+                    fontSize: 18,), // Size of title),  //returns titlte on piechart
+         ),
     legend: 
-              Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart
-            series: <CircularSeries>[
+         Legend(
+          position: LegendPosition.right, // positioning of key
+          isVisible: true, 
+          isResponsive: true,
+          overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart
+        series: <CircularSeries>[
         PieSeries<RevDat, String>(
         dataSource: _chartData,
         xValueMapper: (RevDat data,_) => data.sector,
@@ -43,7 +59,7 @@ class MyApp extends StatefulWidget{
     final List<RevDat> chartData = [
       RevDat("Retail", 487172.33,ColorUtil.fromDartColor(pinks[1]) ),
       RevDat("Mining", 1049766.5,ColorUtil.fromDartColor(pinks[2])),
-      RevDat("Prof", 306420.2096,ColorUtil.fromDartColor(pinks[3]) ),
+      //RevDat("Prof", 306420.2096,ColorUtil.fromDartColor(pinks[3]) ),
       RevDat("Manu", 74415.33, ColorUtil.fromDartColor(pinks[4])),
       RevDat("Agri", 130558.67,ColorUtil.fromDartColor(oranges[1]) ),
       RevDat("TMT", 386540.5, ColorUtil.fromDartColor(oranges[2])),
