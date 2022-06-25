@@ -29,8 +29,12 @@ class RetailChart extends StatelessWidget {
                 "Emissions for Retail Sector by Year and Scope",
               ),
               Expanded(
-                child: charts.BarChart(series, animate: true),
-              )
+                child: charts.BarChart(
+                  series,
+                  animate: true,
+                  behaviors: [new charts.SeriesLegend()],
+                ),
+              ),
             ],
           ),
         ),

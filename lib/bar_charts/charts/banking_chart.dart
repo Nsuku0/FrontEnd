@@ -29,7 +29,11 @@ class BankingChart extends StatelessWidget {
                 "Emissions for Agriculture Sector by Year and Scope",
               ),
               Expanded(
-                child: charts.BarChart(series, animate: true),
+                child: charts.BarChart(
+                  series,
+                  animate: true,
+                  behaviors: [new charts.SeriesLegend()],
+                ),
               )
             ],
           ),
