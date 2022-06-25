@@ -1,4 +1,4 @@
-import 'package:charts_flutter/flutter.dart';
+//import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'constants/constants.dart';
@@ -25,7 +25,7 @@ class MyApp extends StatefulWidget{
         child: Scaffold(
           body: SfCircularChart(
     title: 
-         ChartTitle(text:"Combined Scope 1 and 2 Emissions per Sector 2020" //returns titlte on piechart
+         ChartTitle(text:"Combined Scope 1 and 2 Emissions per Sector 2020",//returns titlte on piechart
               backgroundColor: Colors.white,
                   borderColor: Colors.white,
                   borderWidth: 2,
@@ -35,7 +35,7 @@ class MyApp extends StatefulWidget{
                     color: oranges[3], //colour of title
                     fontFamily: 'Calibri',    // Sets title font
                     fontStyle: FontStyle.normal,
-                    fontweight: FontWeight.bold, //Make Title bold
+                    fontWeight: FontWeight.bold, //Make Title bold
                     fontSize: 18,), // Size of title),  //returns titlte on piechart
          ),
     legend: 
@@ -59,9 +59,9 @@ class MyApp extends StatefulWidget{
     final List<RevDat> chartData = [
       RevDat("Retail", 487172.33,ColorUtil.fromDartColor(pinks[1]) ),
       RevDat("Mining", 1049766.5,ColorUtil.fromDartColor(pinks[2])),
-      //RevDat("Prof", 306420.2096,ColorUtil.fromDartColor(pinks[3]) ),
-      RevDat("Manu", 74415.33, ColorUtil.fromDartColor(pinks[4])),
-      RevDat("Agri", 130558.67,ColorUtil.fromDartColor(oranges[1]) ),
+      RevDat("Banking", 306420.2096,ColorUtil.fromDartColor(pinks[3]) ),
+      RevDat("Manufactoring", 74415.33, ColorUtil.fromDartColor(pinks[4])),
+      RevDat("Agriculture", 130558.67,ColorUtil.fromDartColor(oranges[1]) ),
       RevDat("TMT", 386540.5, ColorUtil.fromDartColor(oranges[2])),
     ];
     return chartData;

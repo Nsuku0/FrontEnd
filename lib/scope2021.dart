@@ -1,4 +1,4 @@
-import 'package:charts_flutter/flutter.dart';
+//import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'constants/constants.dart';
@@ -36,7 +36,7 @@ class MyApp extends StatefulWidget{
                     color: oranges[3], //colour of title
                     fontFamily: 'Calibri',    // Sets title font
                     fontStyle: FontStyle.normal,
-                    fontweight: FontWeight.bold, //Make Title bold
+                    fontWeight: FontWeight.bold, //Make Title bold
                     fontSize: 18,), // Size of title
               ),
        legend: 
@@ -58,12 +58,12 @@ class MyApp extends StatefulWidget{
 
   List<RevDat> getSectorInfo(){
     final List<RevDat> chartData = [
-      RevDat("Retail",7237062.17, ColorUtil.fromDartColor(pinks[1]) ),
-      RevDat("Mining",1175693.667, ColorUtil.fromDartColor(pinks[1])),
-      //RevDat("Prof", 28020.30315, ColorUtil.fromDartColor(pinks[1])),
-      RevDat("Manu",72587.5 , ColorUtil.fromDartColor(pinks[1])),
-      RevDat("Agri", 283577.33, ColorUtil.fromDartColor(pinks[1])),
-      RevDat("TMT",308638.17, ColorUtil.fromDartColor(pinks[1])),
+      RevDat("Retail",7237062.17, Color(pinks[1]) ),
+      RevDat("Mining",1175693.667, Color(pinks[1])),
+      RevDat("Banking", 28020.30315, Color(pinks[1])),
+      RevDat("Manufactoring",72587.5 , Color(pinks[1])),
+      RevDat("Agriculture", 283577.33, Color(pinks[1])),
+      RevDat("TMT",308638.17, Color(pinks[1])),
     ];
     return chartData;
   
