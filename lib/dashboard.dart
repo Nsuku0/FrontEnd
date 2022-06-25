@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'data.dart';
 import 'constants/constants.dart';
 import 'bar_charts/series/banking_series.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
