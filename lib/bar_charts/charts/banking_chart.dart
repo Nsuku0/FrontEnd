@@ -30,53 +30,53 @@ class BankingChart extends StatelessWidget {
 
   /// Create series list with multiple series
   static List<charts.Series<Emissions, String>> _createSampleData() {
-    final scope1_2020 = [
-      new Emissions('FNB', 8301),
-      new Emissions('Nedbank ', 1265),
+    final fnb_2020 = [
+      new Emissions('FNB', 8301), //1 2020
+      new Emissions('FNB', 171), // 2 2020
     ];
 
-    final scope2_2020 = [
-      new Emissions('FNB', 171),
-      new Emissions('Nedbank ', 118050),
+    final fnb_2021 = [
+      new Emissions('FNB', 6507), // 1 2021
+      new Emissions('FNB', 153), //2 2021
     ];
 
-    final scope1_2021 = [
-      new Emissions('FNB', 6507),
-      new Emissions('Nedbank ', 1541),
+    final nedbank_2020 = [
+      new Emissions('Nedbank ', 1265), // 1 2020
+      new Emissions('Nedbank ', 118050), //2 2020
     ];
 
-    final scope2_2021 = [
-      new Emissions('FNB', 153),
-      new Emissions('Nedbank', 110529),
+    final nedbank_2021 = [
+      new Emissions('Nedbank ', 1541), // 1 2021
+      new Emissions('Nedbank', 110529), //2 2021
     ];
     return [
       new charts.Series<Emissions, String>(
-        id: 'Scope 1 (2020)',
+        id: 'FNB (2020)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[3]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope1_2020,
+        data: fnb_2020,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Scope 2 (2020)',
+        id: 'FNB (2021)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[2]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope2_2020,
+        data: fnb_2021,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Scope 1 (2021)',
+        id: 'Nedbank (2020)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[1]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope1_2021,
+        data: nedbank_2020,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Scope 2 (2021)',
+        id: 'Nedbank (2021)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[0]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope2_2021,
+        data: nedbank_2021,
       ),
     ];
   }

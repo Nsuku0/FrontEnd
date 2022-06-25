@@ -30,57 +30,78 @@ class ManufacturingChart extends StatelessWidget {
 
   /// Create series list with multiple series
   static List<charts.Series<Emissions, String>> _createSampleData() {
-    final scope1_2020 = [
-      new Emissions('Pernod Ricard SA', 385),
-      new Emissions('Nestle SA', 579),
-      new Emissions('Isuzu Motors SA', 71598),
+    final pernod_ricard_2020 = [
+      new Emissions('Pernod Ricard SA',
+          385), // 1 2020      new Emissions('Pernod Ricard SA', 1035), // 2 2020
     ];
 
-    final scope2_2020 = [
-      new Emissions('Pernod Ricard SA', 1035),
-      new Emissions('Nestle SA', 1555),
-      new Emissions('Isuzu Motors SA', 371340),
+    final pernod_ricard_2021 = [
+      new Emissions('Pernod Ricard SA', 345), // 1 2021
+      new Emissions('Pernod Ricard SA', 650), // 2 2021
     ];
 
-    final scope1_2021 = [
-      new Emissions('Pernod Ricard SA', 345),
-      new Emissions('Nestle SA', 730),
-      new Emissions('Isuzu Motors SA', 78709),
+    final nestle_2020 = [
+      new Emissions('Nestle SA', 579), // 1 2020
+      new Emissions('Nestle SA', 1555), // 2 2020
     ];
 
-    final scope2_2021 = [
-      new Emissions('Pernod Ricard SA', 650),
-      new Emissions('Nestle SA', 1375),
-      new Emissions('Isuzu Motors SA', 353716),
+    final nestle_2021 = [
+      new Emissions('Nestle SA', 730), // 1 2021
+      new Emissions('Nestle SA', 1375), // 2 2021
     ];
+
+    final isuzu_2020 = [
+      new Emissions('Isuzu Motors SA', 71598), // 1 2020
+      new Emissions('Isuzu Motors SA', 371340), // 2 2020
+    ];
+
+    final isuzu_2021 = [
+      new Emissions('Isuzu Motors SA', 78709), // 1 2021
+      new Emissions('Isuzu Motors SA', 353716), // 2 2021
+    ];
+
     return [
       new charts.Series<Emissions, String>(
-        id: 'Scope 1 (2020)',
+        id: 'Nestle (2020)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[3]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope1_2020,
+        data: nestle_2020,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Scope 2 (2020)',
+        id: 'Nestle (2021)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[2]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope2_2020,
+        data: nestle_2021,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Scope 1 (2021)',
+        id: 'Pernod Ricard (2020)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[1]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope1_2021,
+        data: pernod_ricard_2020,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Scope 2 (2021)',
+        id: 'Pernod Ricard (2021)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[0]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope2_2021,
+        data: pernod_ricard_2021,
+      ),
+      new charts.Series<Emissions, String>(
+        id: 'Isuzu Motors (2020)',
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[3]),
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: isuzu_2020,
+      ),
+      new charts.Series<Emissions, String>(
+        id: 'Isuzu Motors (2021)',
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[2]),
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: isuzu_2021,
       ),
     ];
   }

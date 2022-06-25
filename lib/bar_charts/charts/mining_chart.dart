@@ -30,57 +30,78 @@ class MiningChart extends StatelessWidget {
 
   /// Create series list with multiple series
   static List<charts.Series<Emissions, String>> _createSampleData() {
-    final scope1_2020 = [
-      new Emissions('Anglo American', 875714),
-      new Emissions('Exxaro SA', 385000),
-      new Emissions('Implats', 380114),
+    final anglo_2020 = [
+      new Emissions('Anglo American', 875714), //1 2020
+      new Emissions('Anglo American', 1428571), //2 2020
     ];
 
-    final scope2_2020 = [
-      new Emissions('Anglo American', 1428571),
-      new Emissions('Exxaro SA', 650000),
-      new Emissions('Implats', 2925700),
+    final anglo_2021 = [
+      new Emissions('Anglo American', 875714), //1 2021
+      new Emissions('Anglo American', 1428571), //2 2021
     ];
 
-    final scope1_2021 = [
-      new Emissions('Anglo American', 875714),
-      new Emissions('Exxaro SA', 345000),
-      new Emissions('Implats', 447247),
+    final exxaro_2020 = [
+      new Emissions('Exxaro SA', 385000), //1 2020
+      new Emissions('Exxaro SA', 650000), //2 2020
     ];
 
-    final scope2_2021 = [
-      new Emissions('Anglo American', 1428571),
-      new Emissions('Exxaro SA', 650000),
-      new Emissions('Implats', 3307630),
+    final exxaro_2021 = [
+      new Emissions('Exxaro SA', 345000), //1 2021
+      new Emissions('Exxaro SA', 650000), //2 2021
     ];
+
+    final implats_2020 = [
+      new Emissions('Implats', 380114), //1 2020
+      new Emissions('Implats', 2925700), //2 2020
+    ];
+
+    final implats_2021 = [
+      new Emissions('Implats', 447247), //1 2021
+      new Emissions('Implats', 3307630), //2 2021
+    ];
+
     return [
       new charts.Series<Emissions, String>(
-        id: 'Scope 1 (2020)',
+        id: 'Anglo American (2020)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[0]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope1_2020,
+        data: anglo_2020,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Scope 2 (2020)',
+        id: 'Anglo American (2021)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[1]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope2_2020,
+        data: anglo_2021,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Scope 1 (2021)',
+        id: 'Exxaro (2020)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[2]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope1_2021,
+        data: exxaro_2020,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Scope 2 (2021)',
+        id: 'Exxaro(2021)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[3]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope2_2021,
+        data: exxaro_2021,
+      ),
+      new charts.Series<Emissions, String>(
+        id: 'Implats (2020)',
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[2]),
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: implats_2020,
+      ),
+      new charts.Series<Emissions, String>(
+        id: 'Implats (2021)',
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[1]),
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: implats_2021,
       ),
     ];
   }

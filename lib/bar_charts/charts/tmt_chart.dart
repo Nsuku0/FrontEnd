@@ -30,57 +30,78 @@ class TMTChart extends StatelessWidget {
 
   /// Create series list with multiple series
   static List<charts.Series<Emissions, String>> _createSampleData() {
-    final scope1_2020 = [
-      new Emissions('MTN', 247385),
-      new Emissions('Telkom SA SOC LTD', 50101),
-      new Emissions('Vodacom (PTY) LTD', 54070),
+    final mtn_2020 = [
+      new Emissions('MTN', 247385), //1 2020
+      new Emissions('MTN', 864865), //2 2020
     ];
 
-    final scope2_2020 = [
-      new Emissions('MTN', 864865),
-      new Emissions('Telkom SA SOC LTD', 546000),
-      new Emissions('Vodacom (PTY) LTD', 556822),
+    final mtn_2021 = [
+      new Emissions('MTN', 566785), //1 2021
+      new Emissions('MTN', 566785), //2 2021
     ];
 
-    final scope1_2021 = [
-      new Emissions('MTN', 566785),
-      new Emissions('Telkom SA SOC LTD', 57825),
-      new Emissions('Vodacom (PTY) LTD', 553982),
+    final telkom_2020 = [
+      new Emissions('Telkom SA SOC LTD', 50101), //1 2020
+      new Emissions('Telkom SA SOC LTD', 546000), //2 2020
     ];
 
-    final scope2_2021 = [
-      new Emissions('MTN', 566785),
-      new Emissions('Telkom SA SOC LTD', 50695),
-      new Emissions('Vodacom (PTY) LTD', 55757),
+    final telkom_2021 = [
+      new Emissions('Telkom SA SOC LTD', 57825), //1 2021
+      new Emissions('Telkom SA SOC LTD', 50695), //2 2021
     ];
+
+    final vodacom_2020 = [
+      new Emissions('Vodacom (PTY) LTD', 54070), //1 2020
+      new Emissions('Vodacom (PTY) LTD', 556822), //2 2020
+    ];
+
+    final vodacom_2021 = [
+      new Emissions('Vodacom (PTY) LTD', 553982), //1 2021
+      new Emissions('Vodacom (PTY) LTD', 55757), //2 2021
+    ];
+
     return [
       new charts.Series<Emissions, String>(
-        id: 'Scope 1 (2020)',
+        id: 'MTN (2020)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[0]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope1_2020,
+        data: mtn_2020,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Scope 2 (2020)',
+        id: 'MTN (2020)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[1]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope2_2020,
+        data: mtn_2021,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Scope 1 (2021)',
+        id: 'Telkom (2020)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[2]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope1_2021,
+        data: telkom_2020,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Scope 2 (2021)',
+        id: 'Telkom (2021)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[3]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope2_2021,
+        data: telkom_2021,
+      ),
+      new charts.Series<Emissions, String>(
+        id: 'Vodacom (2020)',
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[1]),
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: vodacom_2020,
+      ),
+      new charts.Series<Emissions, String>(
+        id: 'Vodacom (2021)',
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[0]),
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: vodacom_2021,
       ),
     ];
   }

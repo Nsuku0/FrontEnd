@@ -30,57 +30,79 @@ class RetailChart extends StatelessWidget {
 
   /// Create series list with multiple series
   static List<charts.Series<Emissions, String>> _createSampleData() {
-    final scope1_2020 = [
-      new Emissions('Woolworths Holdings Limited', 44886),
-      new Emissions('Mr Price Group LTD', 52535),
-      new Emissions('Shoprite Holdings', 528889),
+    final woolies_2020 = [
+      new Emissions('Woolworths Holdings Limited', 44886), //1 2020
+      new Emissions('Woolworths Holdings Limited', 441875), //2 2020
     ];
 
-    final scope2_2020 = [
-      new Emissions('Woolworths Holdings Limited', 441875),
-      new Emissions('Mr Price Group LTD', 52535),
-      new Emissions('Shoprite Holdings', 1802314),
+    final woolies_2021 = [
+      new Emissions('Woolworths Holdings Limited', 449819), //1 2021
+      new Emissions('Woolworths Holdings Limited', 40675226), //2 2021
     ];
 
-    final scope1_2021 = [
-      new Emissions('Woolworths Holdings Limited', 449819),
-      new Emissions('Mr Price Group LTD', 46034),
-      new Emissions('Shoprite Holdings', 511067),
+    final mr_price_2020 = [
+      new Emissions('Mr Price Group LTD', 52535), //1 2020
+      new Emissions('Mr Price Group LTD', 52535), //2 2020
     ];
 
-    final scope2_2021 = [
-      new Emissions('Woolworths Holdings Limited', 40675226),
-      new Emissions('Mr Price Group LTD', 46034),
-      new Emissions('Shoprite Holdings', 1694193),
+    final mr_price_2021 = [
+      new Emissions('Mr Price Group LTD', 46034), //1 2021
+
+      new Emissions('Mr Price Group LTD', 46034), //2 2021
     ];
+
+    final shoprite_2020 = [
+      new Emissions('Shoprite Holdings', 528889), //1 2020
+      new Emissions('Shoprite Holdings', 1802314), //2 2020
+    ];
+
+    final shoprite_2021 = [
+      new Emissions('Shoprite Holdings', 511067), //1 2021
+      new Emissions('Shoprite Holdings', 1694193), //2 2021
+    ];
+
     return [
       new charts.Series<Emissions, String>(
-        id: 'Scope 1 (2020)',
+        id: 'Woolworths (2020)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[0]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope1_2020,
+        data: woolies_2020,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Scope 2 (2020)',
+        id: 'Woolworths (2020)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[1]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope2_2020,
+        data: woolies_2021,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Scope 1 (2021)',
+        id: 'Mr Price (2020)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[2]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope1_2021,
+        data: mr_price_2020,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Scope 2 (2021)',
+        id: 'Mr Price (2021)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[3]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
-        data: scope2_2021,
+        data: mr_price_2021,
+      ),
+      new charts.Series<Emissions, String>(
+        id: 'Shoprite (2020)',
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[2]),
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: shoprite_2020,
+      ),
+      new charts.Series<Emissions, String>(
+        id: 'Shoprite (2021)',
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[1]),
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: shoprite_2021,
       ),
     ];
   }
