@@ -24,9 +24,23 @@ class MyApp extends StatefulWidget{
         child: Scaffold(
           body: SfCircularChart(
       title: 
-              ChartTitle(text:"Average Revenue Per Sector"),  //returns titlte on piechart
+              ChartTitle(text:"Average Revenue Per Sector",
+              backgroundColor: Colors.white,
+                  borderColor: Colors.white,
+                  borderWidth: 2,
+                  // Aligns the chart title to left
+                  alignment: ChartAlignment.near,
+                  textStyle: TextStyle(
+                    color: oranges[3], //colour of title
+                    fontFamily: '',    // Sets title font
+                    fontStyle: FontStyle.italic,
+                    fontweight: FontWeight.bold, //Make Title bold
+                    fontSize: 18,), // Size of title
+              ),  //returns titlte on piechart
       legend: 
-              Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart  
+              Legend(
+              position: ,
+              isVisible: true, overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart  
             series: <CircularSeries>[ 
               PieSeries<RevDat, String>(
               dataSource: _chartData,

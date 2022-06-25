@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget{
         child: Scaffold(
           body: SfCircularChart(
       title: 
-              ChartTitle(text:"2020 Scope 1 - Average Emissions Per Sector"),  //returns titlte on piechart
+              ChartTitle(text:"Combined Scope 1 and 2 Emissions per Sector"),  //returns titlte on piechart
       legend: 
               Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart
             series: <CircularSeries>[

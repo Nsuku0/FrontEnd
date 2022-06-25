@@ -25,14 +25,15 @@ class MyApp extends StatefulWidget{
         child: Scaffold(
           body: SfCircularChart(
     title: 
-              ChartTitle(text:"2020 Scope 1 - Average Emissions Per Sector"),  //returns titlte on piechart
+         ChartTitle(text:"Combined Scope 1 and 2 Emissions per Sector 2020"),  //returns titlte on piechart
     legend: 
               Legend(isVisible: true, overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart
             series: <CircularSeries>[
         PieSeries<RevDat, String>(
         dataSource: _chartData,
         xValueMapper: (RevDat data,_) => data.sector,
-        yValueMapper: (RevDat data,_) => data.emission,)
+        yValueMapper: (RevDat data,_) => data.emission,
+        dataLabelSettings: DataLabelSettings(isVisible: true))
       ])));         // returns chart in usable area
     }
     
@@ -40,12 +41,12 @@ class MyApp extends StatefulWidget{
 
   List<RevDat> getSectorInfo(){
     final List<RevDat> chartData = [
-      RevDat("Retail", 515617.5,ColorUtil.fromDartColor(pinks[1]) ),
-      RevDat("Mining", 370417.5845,ColorUtil.fromDartColor(pinks[2])),
+      RevDat("Retail", 487172.33,ColorUtil.fromDartColor(pinks[1]) ),
+      RevDat("Mining", 1049766.5,ColorUtil.fromDartColor(pinks[2])),
       RevDat("Prof", 306420.2096,ColorUtil.fromDartColor(pinks[3]) ),
-      RevDat("Manu", 89122.59289, ColorUtil.fromDartColor(pinks[4])),
-      RevDat("Agri", 35777.33616,ColorUtil.fromDartColor(oranges[1]) ),
-      RevDat("TMT", 206355.5005, ColorUtil.fromDartColor(oranges[2])),
+      RevDat("Manu", 74415.33, ColorUtil.fromDartColor(pinks[4])),
+      RevDat("Agri", 130558.67,ColorUtil.fromDartColor(oranges[1]) ),
+      RevDat("TMT", 386540.5, ColorUtil.fromDartColor(oranges[2])),
     ];
     return chartData;
   
