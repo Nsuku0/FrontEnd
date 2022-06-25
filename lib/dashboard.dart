@@ -1,4 +1,14 @@
+import 'package:absa_cib_ecg_dashboard/avgrev.dart';
+import 'package:absa_cib_ecg_dashboard/scope2020.dart';
+import 'package:absa_cib_ecg_dashboard/scope2021.dart';
 import 'package:flutter/material.dart';
+import 'bar_charts/charts/agri_chart.dart';
+import 'bar_charts/charts/banking_chart.dart';
+import 'bar_charts/charts/manufacturing_chart.dart';
+import 'bar_charts/charts/mining_chart.dart';
+import 'bar_charts/charts/retail_chart.dart';
+import 'bar_charts/charts/tmt_chart.dart';
+import 'companyinfo.dart';
 import 'constants/constants.dart';
 import 'bar_charts/series/banking_series.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
@@ -9,36 +19,16 @@ import 'bar_charts/series/retail_series.dart';
 import 'bar_charts/series/tmt_series.dart';
 
 class Dashboard extends StatefulWidget {
+  const Dashboard({Key? key}) : super(key: key);
+
   @override
   _DashboardState createState() => _DashboardState();
 }
 
 class _DashboardState extends State<Dashboard> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: bg,
-        appBar: AppBar(
-          title: Text("Dashboard"),
-        ),
-        body: SafeArea(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              /**Expanded(child: DrawerMenu(),),**/
-              Expanded(
-                flex: 5,
-                child: DashboardContent(),
-              )
-            ],
-          ),
-        ));
-  }
-}
 
-class DashboardContent extends StatelessWidget {
-  const DashboardContent({Key? key}) : super(key: key);
-  final List<BankingSeries> banking_data = [
+  //Data to plot charts
+  final List<BankingSeries> bankingData = [
     BankingSeries(
         name: "FNB, Scope 1",
         emissions: 8301,
@@ -72,7 +62,7 @@ class DashboardContent extends StatelessWidget {
         emissions: 110529,
         barColor: charts.ColorUtil.fromDartColor(pinks[2])),
   ];
-  final List<MiningSeries> mining_data = [
+  final List<MiningSeries> miningData = [
     MiningSeries(
         name: "Anglo American (PTY) LTD Scope 1",
         emissions: 875714,
@@ -123,7 +113,7 @@ class DashboardContent extends StatelessWidget {
         emissions: 3307630,
         barColor: charts.ColorUtil.fromDartColor(pinks[2])),
   ];
-  final List<TMTSeries> tmt_data = [
+  final List<TMTSeries> tmtData = [
     TMTSeries(
         name: "MTN Scope 1",
         emissions: 247385,
@@ -173,7 +163,7 @@ class DashboardContent extends StatelessWidget {
         emissions: 553982,
         barColor: charts.ColorUtil.fromDartColor(pinks[2])),
   ];
-  final List<ManufacturingSeries> manufacturing_data = [
+  final List<ManufacturingSeries> manufacturingData = [
     ManufacturingSeries(
         name: "Pernod Rcard SA Scope 1",
         emissions: 385,
@@ -223,7 +213,7 @@ class DashboardContent extends StatelessWidget {
         emissions: 353716,
         barColor: charts.ColorUtil.fromDartColor(pinks[2])),
   ];
-  final List<AgriSeries> agri_data = [
+  final List<AgriSeries> agriData = [
     AgriSeries(
         name: "Country Bird Holdings (PTY) Scope 1",
         emissions: 19221,
@@ -273,7 +263,7 @@ class DashboardContent extends StatelessWidget {
         emissions: 503277,
         barColor: charts.ColorUtil.fromDartColor(pinks[2])),
   ];
-  final List<RetailSeries> retail_data = [
+  final List<RetailSeries> retailData = [
     RetailSeries(
         name: "Woolworths Holdings Limited Scope 1",
         emissions: 44886,
@@ -324,46 +314,79 @@ class DashboardContent extends StatelessWidget {
         barColor: charts.ColorUtil.fromDartColor(pinks[2])),
   ];
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: appPadding,
-              ),
-              Column(
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        flex: 5,
-                        child: Column(
-                          children: [
-                            Text('hello'),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                  Container(
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                            "icons/absa.png"), // <-- BACKGROUND IMAGE
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
+       // backgroundColor: bg,
+        appBar: AppBar(
+          title: const Text("ABSA ECG Dashboard"),
         ),
-      ),
-    );
+        body: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+
+                  children:  [
+                    SizedBox(
+                      height: 500,
+                        child: AgriChart(data: agriData,)),
+                    const SizedBox(height: 50,),
+                    SizedBox(
+                      height: 500,
+                        child: BankingChart(data: bankingData,)),
+                    const SizedBox(height: 50,),
+                    SizedBox(
+
+                        height: 500,
+                        child: ManufacturingChart(data: manufacturingData,)),
+                    const SizedBox(height: 50,),
+                    SizedBox(
+
+                        height: 500,
+                        child: MiningChart(data: miningData,)),
+                    const SizedBox(height: 50,),
+                    SizedBox(
+
+                        height: 500,
+                        child: RetailChart(data: retailData,)),
+                    const SizedBox(height: 50,),
+                    SizedBox(
+
+                        height: 500,
+                        child: TMTChart(data: tmtData,)),//
+                  ],
+                ),
+              ),
+            ),
+
+           /* Expanded(
+
+              child: SingleChildScrollView(
+                  child: Container(
+                      color: Colors.white,
+                    child: const Expanded(child: Average()),Column(
+                      children: const [
+                        Expanded(child: Average()),
+                        Expanded(child: Scope2021()),
+                        Expanded(child: Scope2020()),
+                      ],
+                    ),
+                  )
+              ),
+            ),*/
+
+            Expanded(
+
+              child: Container(
+              color: Colors.white,
+              child: const CompanyInfo()),
+            )
+          ],
+
+        ));
   }
 }
