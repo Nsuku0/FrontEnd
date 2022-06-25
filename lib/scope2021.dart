@@ -26,17 +26,18 @@ class MyApp extends StatefulWidget{
           child: Scaffold(
               body: SfCircularChart(
        title: ChartTitle(
-              text: '2020 Scope 1 \- Average Emissions Per Sector',  //returns titlte on piechart
+              text:'Combined Scope 1 and 2 Emissions per Sector 2021',  //returns titlte on piechart
               backgroundColor: Colors.white,
                   borderColor: Colors.white,
                   borderWidth: 2,
                   // Aligns the chart title to left
                   alignment: ChartAlignment.near,
                   textStyle: TextStyle(
-                    color: oranges[3],
-                    fontFamily: '',
+                    color: oranges[3], //colour of title
+                    fontFamily: '',    // Sets title font
                     fontStyle: FontStyle.italic,
-                    fontSize: 14,)
+                    fontweight: FontWeight.bold, //Make Title bold
+                    fontSize: 18,), // Size of title
               ),
        legend: 
               Legend(
@@ -46,6 +47,7 @@ class MyApp extends StatefulWidget{
                 overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart
                 series: <CircularSeries>[
                   PieSeries<RevDat, String>(
+                  dataLabelSettings: DataLabelSettings(isVisible: true), ///labels sector on chart
                   dataSource: _chartData,
                   xValueMapper: (RevDat data,_) => data.sector,
                   yValueMapper: (RevDat data,_) => data.emission,
@@ -56,12 +58,12 @@ class MyApp extends StatefulWidget{
 
   List<RevDat> getSectorInfo(){
     final List<RevDat> chartData = [
-      RevDat("Retail", 531530, ColorUtil.fromDartColor(pinks[1]) ),
-      RevDat("Mining", 31800.3871, ColorUtil.fromDartColor(pinks[1])),
+      RevDat("Retail",7237062.17, ColorUtil.fromDartColor(pinks[1]) ),
+      RevDat("Mining",1175693.667, ColorUtil.fromDartColor(pinks[1])),
       RevDat("Prof", 28020.30315, ColorUtil.fromDartColor(pinks[1])),
-      RevDat("Manu", 20045.38777, ColorUtil.fromDartColor(pinks[1])),
-      RevDat("Agri", 10894.16791, ColorUtil.fromDartColor(pinks[1])),
-      RevDat("TMT", 23530.21333, ColorUtil.fromDartColor(pinks[1])),
+      RevDat("Manu",72587.5 , ColorUtil.fromDartColor(pinks[1])),
+      RevDat("Agri", 283577.33, ColorUtil.fromDartColor(pinks[1])),
+      RevDat("TMT",308638.17, ColorUtil.fromDartColor(pinks[1])),
     ];
     return chartData;
   
