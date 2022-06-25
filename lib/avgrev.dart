@@ -27,7 +27,7 @@ class MyApp extends StatefulWidget{
               ChartTitle(text:"Average Revenue Per Sector",
               backgroundColor: Colors.white,
                   borderColor: Colors.white,
-                  borderWidth: 2,
+                  //borderWidth: 2,
                   // Aligns the chart title to left
                   alignment: ChartAlignment.near,
                   textStyle: TextStyle(
