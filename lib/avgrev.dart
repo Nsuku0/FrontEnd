@@ -57,12 +57,12 @@ class MyApp extends StatefulWidget{
 
   List<RevDat> getSectorInfo(){
     final List<RevDat> chartData = [
-      RevDat("Retail",123472.9, Colors.pinks[1]),
-      RevDat("Mining", 262915,Colors.(pinks[2]) ),
-      RevDat("Banking",95156.5, Colors.(pinks[3]) ),
-      RevDat("Manufactoring",81221.76,Colors.(pinks[4]) ),
-      RevDat("Agriculture", 72134.04,Colors.(oranges[1])),
-      RevDat("TMT",45733.32,Colors.(oranges[2])),
+      RevDat("Retail",123472.9, Color.fromRGBO(135, 19, 60, 1),),
+      RevDat("Mining", 262915, Color.fromRGBO(175, 20, 75, 1)),
+      RevDat("Banking",95156.5, Color.fromRGBO(240, 50, 90, 1) ),
+      RevDat("Manufactoring",81221.76,Color.fromRGBO(240, 90, 120, 1) ),
+      RevDat("Agriculture", 72134.04,Color.fromRGBO(225, 120, 15, 1)),
+      RevDat("TMT",45733.32,Color.fromRGBO(250, 85, 30, 1)),
     ];
     return chartData;
   }
