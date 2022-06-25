@@ -3,42 +3,88 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import '../series/mining_series.dart';
 
 class MiningChart extends StatelessWidget {
-  final List<MiningSeries> data;
+  List<charts.Series> seriesList;
+  final bool animate;
 
-  MiningChart({required this.data});
+  MiningChart(this.seriesList, {required this.animate});
+
+  factory MiningChart.withSampleData() {
+    return new MiningChart(
+      _createSampleData(),
+      // Disable animations for image tests.
+      animate: false,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    List<charts.Series<MiningSeries, String>> series = [
-      charts.Series(
-          id: "Emissions",
-          data: data,
-          domainFn: (MiningSeries series, _) => series.name,
-          measureFn: (MiningSeries series, _) => series.emissions,
-          colorFn: (MiningSeries series, _) => series.barColor)
-    ];
-    return Container(
-      height: 400,
-      padding: EdgeInsets.all(20),
-      child: Card(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: <Widget>[
-              Text(
-                "Emissions for Mining & Metals Sector by Year and Scope",
-              ),
-              Expanded(
-                child: charts.BarChart(
-                  series,
-                  animate: true,
-                  behaviors: [new charts.SeriesLegend()],
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
+    return new charts.BarChart(
+      seriesList = _createSampleData(),
+      animate: animate,
+      barGroupingType: charts.BarGroupingType.grouped,
+      // Add the series legend behavior to the chart to turn on series legends.
+      // By default the legend will display above the chart.
+      behaviors: [new charts.SeriesLegend()],
     );
   }
+
+  /// Create series list with multiple series
+  static List<charts.Series<Emissions, String>> _createSampleData() {
+    final scope1_2020 = [
+      new Emissions('Anglo American', 875714),
+      new Emissions('Exxaro SA', 385000),
+      new Emissions('Implats', 380114),
+    ];
+
+    final scope2_2020 = [
+      new Emissions('Anglo American', 1428571),
+      new Emissions('Exxaro SA', 650000),
+      new Emissions('Implats', 2925700),
+    ];
+
+    final scope1_2021 = [
+      new Emissions('Anglo American', 875714),
+      new Emissions('Exxaro SA', 345000),
+      new Emissions('Implats', 447247),
+    ];
+
+    final scope2_2021 = [
+      new Emissions('Anglo American', 1428571),
+      new Emissions('Exxaro SA', 650000),
+      new Emissions('Implats', 3307630),
+    ];
+    return [
+      new charts.Series<Emissions, String>(
+        id: 'Scope 1 (2020)',
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: scope1_2020,
+      ),
+      new charts.Series<Emissions, String>(
+        id: 'Scope 2 (2020)',
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: scope2_2020,
+      ),
+      new charts.Series<Emissions, String>(
+        id: 'Scope 1 (2021)',
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: scope1_2021,
+      ),
+      new charts.Series<Emissions, String>(
+        id: 'Scope 2 (2021)',
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: scope2_2021,
+      ),
+    ];
+  }
+}
+
+class Emissions {
+  final String name;
+  final int emissions;
+
+  Emissions(this.name, this.emissions);
 }

@@ -3,42 +3,88 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import '../series/tmt_series.dart';
 
 class TMTChart extends StatelessWidget {
-  final List<TMTSeries> data;
+  List<charts.Series> seriesList;
+  final bool animate;
 
-  TMTChart({required this.data});
+  TMTChart(this.seriesList, {required this.animate});
+
+  factory TMTChart.withSampleData() {
+    return new TMTChart(
+      _createSampleData(),
+      // Disable animations for image tests.
+      animate: false,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    List<charts.Series<TMTSeries, String>> series = [
-      charts.Series(
-          id: "Emissions",
-          data: data,
-          domainFn: (TMTSeries series, _) => series.name,
-          measureFn: (TMTSeries series, _) => series.emissions,
-          colorFn: (TMTSeries series, _) => series.barColor)
-    ];
-    return Container(
-      height: 400,
-      padding: EdgeInsets.all(20),
-      child: Card(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: <Widget>[
-              Text(
-                "Emissions for TMT Sector by Year and Scope",
-              ),
-              Expanded(
-                child: charts.BarChart(
-                  series,
-                  animate: true,
-                  behaviors: [new charts.SeriesLegend()],
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
+    return new charts.BarChart(
+      seriesList = _createSampleData(),
+      animate: animate,
+      barGroupingType: charts.BarGroupingType.grouped,
+      // Add the series legend behavior to the chart to turn on series legends.
+      // By default the legend will display above the chart.
+      behaviors: [new charts.SeriesLegend()],
     );
   }
+
+  /// Create series list with multiple series
+  static List<charts.Series<Emissions, String>> _createSampleData() {
+    final scope1_2020 = [
+      new Emissions('MTN', 247385),
+      new Emissions('Telkom SA SOC LTD', 50101),
+      new Emissions('Vodacom (PTY) LTD', 54070),
+    ];
+
+    final scope2_2020 = [
+      new Emissions('MTN', 864865),
+      new Emissions('Telkom SA SOC LTD', 546000),
+      new Emissions('Vodacom (PTY) LTD', 556822),
+    ];
+
+    final scope1_2021 = [
+      new Emissions('MTN', 566785),
+      new Emissions('Telkom SA SOC LTD', 57825),
+      new Emissions('Vodacom (PTY) LTD', 553982),
+    ];
+
+    final scope2_2021 = [
+      new Emissions('MTN', 566785),
+      new Emissions('Telkom SA SOC LTD', 50695),
+      new Emissions('Vodacom (PTY) LTD', 55757),
+    ];
+    return [
+      new charts.Series<Emissions, String>(
+        id: 'Scope 1 (2020)',
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: scope1_2020,
+      ),
+      new charts.Series<Emissions, String>(
+        id: 'Scope 2 (2020)',
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: scope2_2020,
+      ),
+      new charts.Series<Emissions, String>(
+        id: 'Scope 1 (2021)',
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: scope1_2021,
+      ),
+      new charts.Series<Emissions, String>(
+        id: 'Scope 2 (2021)',
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: scope2_2021,
+      ),
+    ];
+  }
+}
+
+class Emissions {
+  final String name;
+  final int emissions;
+
+  Emissions(this.name, this.emissions);
 }
