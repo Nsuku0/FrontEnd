@@ -15,17 +15,22 @@ class AgriChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.BarChart(
-      seriesList = _createSampleData(),
-      animate: animate,
-      barGroupingType: charts.BarGroupingType.stacked,
-      defaultRenderer: charts.BarRendererConfig(
-          cornerStrategy: const charts.ConstCornerStrategy(2)),
+    return new charts.BarChart(seriesList = _createSampleData(),
+        animate: animate,
+        barGroupingType: charts.BarGroupingType.stacked,
+        defaultRenderer: charts.BarRendererConfig(
+            cornerStrategy: const charts.ConstCornerStrategy(2)),
 
-      // Add the series legend behavior to the chart to turn on series legends.
-      // By default the legend will display above the chart.
-      behaviors: [new charts.SeriesLegend()],
-    );
+        // Add the series legend behavior to the chart to turn on series legends.
+        // By default the legend will display above the chart.
+        behaviors: [
+          new charts.SeriesLegend()
+        ],
+        customSeriesRenderers: [
+          new charts.LineRendererConfig(
+              // ID used to link series to this renderer.
+              customRendererId: 'customLine')
+        ]);
   }
 
   /// Create series list with multiple series
@@ -58,6 +63,15 @@ class AgriChart extends StatelessWidget {
     final afgri_2021 = [
       new Emissions('Afgri Grain Marketing (PTY) LTD', 153247), //scope 1 2021
       new Emissions('Afgri Grain Marketing (PTY) LTD', 503277), //scope 2 2021
+    ];
+
+    final revenues = [
+      new Emissions('Country Bird Holdings', 2685),
+      new Emissions('Country Bird Holdings', 2359),
+      new Emissions('Karan Beef Feedlot', 1767),
+      new Emissions('Karan Beef Feedlot', 33973),
+      new Emissions('Afgri Grain Marketing', 22963),
+      new Emissions('Afgri Grain Marketing', 22827),
     ];
 
     return [
@@ -103,6 +117,13 @@ class AgriChart extends StatelessWidget {
         measureFn: (Emissions emission, _) => emission.emissions,
         data: afgri_2021,
       ),
+      new charts.Series<Emissions, String>(
+        id: 'Revenues',
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(oranges[0]),
+        domainFn: (Emissions emission, _) => emission.name,
+        measureFn: (Emissions emission, _) => emission.emissions,
+        data: revenues,
+      )..setAttribute(charts.rendererIdKey, 'customLine'),
     ];
   }
 }
