@@ -19,6 +19,9 @@ class AgriChart extends StatelessWidget {
       seriesList = _createSampleData(),
       animate: animate,
       barGroupingType: charts.BarGroupingType.stacked,
+      defaultRenderer: charts.BarRendererConfig(
+          cornerStrategy: const charts.ConstCornerStrategy(2)),
+
       // Add the series legend behavior to the chart to turn on series legends.
       // By default the legend will display above the chart.
       behaviors: [new charts.SeriesLegend()],
@@ -56,44 +59,45 @@ class AgriChart extends StatelessWidget {
       new Emissions('Afgri Grain Marketing (PTY) LTD', 153247), //scope 1 2021
       new Emissions('Afgri Grain Marketing (PTY) LTD', 503277), //scope 2 2021
     ];
+
     return [
       new charts.Series<Emissions, String>(
-        id: 'Country Bird Holdings (2020)',
+        id: 'Country Bird \nHoldings (2020)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[3]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
         data: country_bird_2020,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Country Bird Holdings (2021)',
+        id: 'Country Bird \nHoldings (2021)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[2]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
         data: country_bird_2021,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Karan Beef Holdings (2020)',
+        id: 'Karan Beef \nFeedlot (2020)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[1]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
         data: karan_beef_2020,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Karan Beef Holdings (2021)',
+        id: 'Karan Beef \nFeedlot (2021)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[0]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
         data: karan_beef_2021,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Afgri Grain Marketing (2020)',
+        id: 'Afgri Grain \nMarketing (2020)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[3]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
         data: afgri_2020,
       ),
       new charts.Series<Emissions, String>(
-        id: 'Afgri Grain Marketing (2021)',
+        id: 'Afgri Grain \nMarketing (2021)',
         colorFn: (_, __) => charts.ColorUtil.fromDartColor(pinks[2]),
         domainFn: (Emissions emission, _) => emission.name,
         measureFn: (Emissions emission, _) => emission.emissions,
@@ -108,4 +112,10 @@ class Emissions {
   final int emissions;
 
   Emissions(this.name, this.emissions);
+}
+
+class Revenues {
+  final String name;
+  final double revenue;
+  Revenues(this.name, this.revenue);
 }

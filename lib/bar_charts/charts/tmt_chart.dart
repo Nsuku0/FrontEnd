@@ -20,6 +20,9 @@ class TMTChart extends StatelessWidget {
       barGroupingType: charts.BarGroupingType.stacked,
       // Add the series legend behavior to the chart to turn on series legends.
       // By default the legend will display above the chart.
+      defaultRenderer: charts.BarRendererConfig(
+          cornerStrategy: const charts.ConstCornerStrategy(2)),
+
       behaviors: [new charts.SeriesLegend()],
     );
   }

@@ -18,6 +18,9 @@ class ManufacturingChart extends StatelessWidget {
       seriesList = _createSampleData(),
       animate: animate,
       barGroupingType: charts.BarGroupingType.stacked,
+      defaultRenderer: charts.BarRendererConfig(
+          cornerStrategy: const charts.ConstCornerStrategy(2)),
+
       // Add the series legend behavior to the chart to turn on series legends.
       // By default the legend will display above the chart.
       behaviors: [new charts.SeriesLegend()],
