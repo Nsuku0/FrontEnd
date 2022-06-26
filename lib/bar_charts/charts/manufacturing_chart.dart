@@ -3,17 +3,13 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import '../../constants/constants.dart';
 
 class ManufacturingChart extends StatelessWidget {
-  List<charts.Series> seriesList;
-  final bool animate;
+  List<charts.Series> seriesList = _createSampleData();
+  final bool animate = true;
 
-  ManufacturingChart(this.seriesList, {required this.animate});
+  ManufacturingChart();
 
   factory ManufacturingChart.withSampleData() {
-    return new ManufacturingChart(
-      _createSampleData(),
-      // Disable animations for image tests.
-      animate: false,
-    );
+    return new ManufacturingChart();
   }
 
   @override

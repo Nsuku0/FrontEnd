@@ -3,17 +3,13 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import '../../constants/constants.dart';
 
 class BankingChart extends StatelessWidget {
-  List<charts.Series> seriesList;
-  final bool animate;
+  List<charts.Series> seriesList = _createSampleData();
+  final bool animate = true;
 
-  BankingChart(this.seriesList, {required this.animate});
+  BankingChart();
 
   factory BankingChart.withSampleData() {
-    return new BankingChart(
-      _createSampleData(),
-      // Disable animations for image tests.
-      animate: false,
-    );
+    return new BankingChart();
   }
 
   @override

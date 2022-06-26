@@ -1,19 +1,16 @@
+import 'package:absa_cib_ecg_dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import '../../constants/constants.dart';
 
 class AgriChart extends StatelessWidget {
-  List<charts.Series> seriesList;
-  final bool animate;
+  List<charts.Series> seriesList = _createSampleData();
+  final bool animate = true;
 
-  AgriChart(this.seriesList, {required this.animate});
+  AgriChart();
 
   factory AgriChart.withSampleData() {
-    return new AgriChart(
-      _createSampleData(),
-      // Disable animations for image tests.
-      animate: false,
-    );
+    return new AgriChart();
   }
 
   @override

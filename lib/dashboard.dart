@@ -41,50 +41,35 @@ class _DashboardState extends State<Dashboard> {
                 child: Column(
                   children: [
                     SizedBox(
-                        height: 500,
-                        child: AgriChart(
-                          data: agriData,
-                        )),
+                      height: 500,
+                      child: AgriChart(),
+                    ),
                     const SizedBox(
                       height: 50,
                     ),
                     SizedBox(
-                        height: 500,
-                        child: BankingChart(
-                          data: bankingData,
-                        )),
+                      height: 500,
+                      child: BankingChart(),
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    SizedBox(height: 500, child: ManufacturingChart()),
                     const SizedBox(
                       height: 50,
                     ),
                     SizedBox(
-                        height: 500,
-                        child: ManufacturingChart(
-                          data: manufacturingData,
-                        )),
+                      height: 500,
+                      child: MiningChart(),
+                    ),
                     const SizedBox(
                       height: 50,
                     ),
-                    SizedBox(
-                        height: 500,
-                        child: MiningChart(
-                          data: miningData,
-                        )),
+                    SizedBox(height: 500, child: RetailChart()),
                     const SizedBox(
                       height: 50,
                     ),
-                    SizedBox(
-                        height: 500,
-                        child: RetailChart(
-                          data: retailData,
-                        )),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    SizedBox(
-                        height: 500,
-                        child: TMTChart(
-                          data: tmtData,
-                        )), //
+                    SizedBox(height: 500, child: TMTChart()), //
                   ],
                 ),
               ),

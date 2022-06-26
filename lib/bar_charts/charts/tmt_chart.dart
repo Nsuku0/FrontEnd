@@ -3,17 +3,13 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import '../../constants/constants.dart';
 
 class TMTChart extends StatelessWidget {
-  List<charts.Series> seriesList;
-  final bool animate;
+  List<charts.Series> seriesList = _createSampleData();
+  final bool animate = true;
 
-  TMTChart(this.seriesList, {required this.animate});
+  TMTChart();
 
   factory TMTChart.withSampleData() {
-    return new TMTChart(
-      _createSampleData(),
-      // Disable animations for image tests.
-      animate: false,
-    );
+    return new TMTChart();
   }
 
   @override

@@ -3,17 +3,13 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import '../../constants/constants.dart';
 
 class MiningChart extends StatelessWidget {
-  List<charts.Series> seriesList;
-  final bool animate;
+  List<charts.Series> seriesList = _createSampleData();
+  final bool animate = true;
 
-  MiningChart(this.seriesList, {required this.animate});
+  MiningChart();
 
   factory MiningChart.withSampleData() {
-    return new MiningChart(
-      _createSampleData(),
-      // Disable animations for image tests.
-      animate: false,
-    );
+    return new MiningChart();
   }
 
   @override
