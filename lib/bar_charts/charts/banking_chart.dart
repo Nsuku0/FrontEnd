@@ -24,18 +24,12 @@ class BankingChart extends StatelessWidget {
       // Add the series legend behavior to the chart to turn on series legends.
       // By default the legend will display above the chart.
       behaviors: [
-        new charts.SeriesLegend(),
-        new charts.ChartTitle(
-            'Scope 1 and 2 Carbon Emissions\nfor the Banking sector in 2020 and 2021',
+        charts.ChartTitle(
+            'Scope Emissions for the Banking sector in 2020(left bar) and 2021(right bar)',
             behaviorPosition: charts.BehaviorPosition.bottom,
-            titleStyleSpec: charts.TextStyleSpec(fontSize: 11),
+            titleStyleSpec:   const charts.TextStyleSpec(fontSize: 14,),
             titleOutsideJustification:
-                charts.OutsideJustification.middleDrawArea),
-        new charts.ChartTitle('Carbon emissions, metric tons',
-            behaviorPosition: charts.BehaviorPosition.start,
-            titleStyleSpec: charts.TextStyleSpec(fontSize: 11),
-            titleOutsideJustification:
-                charts.OutsideJustification.middleDrawArea)
+            charts.OutsideJustification.middleDrawArea),
       ],
     );
   }
