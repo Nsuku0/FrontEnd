@@ -1,73 +1,74 @@
-//import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'constants/constants.dart';
 
 
-class MyApp extends StatefulWidget{
+class Scope2021 extends StatefulWidget{
 
-    const MyApp({Key? key}) : super(key: key);
-    State createState() => App();
+  const Scope2021({Key? key}) : super(key: key);
+  @override
+  State createState() => App();
 }
-    class App extends State<MyApp> {
-    late List<RevDat> _chartData;  // initializes chart data field
+class App extends State<Scope2021> {
+  late List<RevDat> _chartData;  // initializes chart data field
 
-    @override
-    void initState(){
-      _chartData = getSectorInfo();
-      super.initState();
-    }
-    
-    
-    
-    @override
-    Widget build(BuildContext context){
-      return SafeArea(
-          child: Scaffold(
-              body: SfCircularChart(
-       title: ChartTitle(
-              text:'Combined Scope 1 and 2 Emissions per Sector 2021',  //returns titlte on piechart
-              backgroundColor: Colors.white,
+  @override
+  void initState(){
+    _chartData = getSectorInfo();
+    super.initState();
+  }
+
+
+
+  @override
+  Widget build(BuildContext context){
+    return SafeArea(
+        child: Scaffold(
+            body: SfCircularChart(
+                title: ChartTitle(
+                  text:'Scope Emissions 2021',  //returns titlte on piechart
+                  backgroundColor: Colors.white,
                   borderColor: Colors.white,
                   borderWidth: 2,
                   // Aligns the chart title to left
                   alignment: ChartAlignment.near,
                   textStyle: TextStyle(
-                    color: oranges[3], //colour of title
-                    fontFamily: 'Calibri',    // Sets title font
-                    fontStyle: FontStyle.normal,
+                    color: oranges[2], //colour of title
+                    fontFamily: '',    // Sets title font
+                    fontStyle: FontStyle.italic,
                     fontWeight: FontWeight.bold, //Make Title bold
                     fontSize: 18,), // Size of title
-              ),
-       legend: 
-              Legend(
-                position: LegendPosition.right, // positioning of key
-                isVisible: true, 
-                isResponsive: true,  // makes key interactive
-                overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart
+                ),
+                legend:
+                Legend(
+                    position: LegendPosition.right, // positioning of key
+                    isVisible: true,
+                    isResponsive: false,  // makes key interactive
+                    overflowMode: LegendItemOverflowMode.wrap), //returns key/legend on piechart
                 series: <CircularSeries>[
                   PieSeries<RevDat, String>(
-                  dataLabelSettings: DataLabelSettings(isVisible: true), ///labels sector on chart
-                  dataSource: _chartData,
-                  xValueMapper: (RevDat data,_) => data.sector,
-                  yValueMapper: (RevDat data,_) => data.emission,
-      )])));        // returns chart in usable area
-    }
-    
+                    dataLabelSettings: const DataLabelSettings(isVisible: true), ///labels sector on chart
+                    dataSource: _chartData,
+                    xValueMapper: (RevDat data,_) => data.sector,
+                    yValueMapper: (RevDat data,_) => data.emission,
+                    pointColorMapper:(RevDat chartData,  _) => chartData.color,
+                  )])));        // returns chart in usable area
+  }
+
   //}
 
   List<RevDat> getSectorInfo(){
     final List<RevDat> chartData = [
-      RevDat("Retail",7237062.17, Color.fromRGBO(135, 19, 60, 1) ),
-      RevDat("Mining",1175693.667, Color.fromRGBO(175, 20, 75, 1)),
-      RevDat("Banking", 28020.30315, Color.fromRGBO(240, 50, 90, 1)),
-      RevDat("Manufactoring",72587.5 , Color.fromRGBO(240, 90, 120, 1)),
-      RevDat("Agriculture", 283577.33, Color.fromRGBO(225, 120, 15, 1)),
-      RevDat("TMT",308638.17, Color.fromRGBO(250, 85, 30, 1)),
+      RevDat("Agri", 283577,oranges[0]),
+      RevDat("TMT",308638, lightText),
+      RevDat("Retail",7237062, pinks[0]) ,
+      RevDat("Mining",1175694, headings_orange),
+      RevDat("Manu",72588 , pinks[2]),
+
     ];
     return chartData;
-  
-}
+
+  }
 }
 
 class RevDat{
